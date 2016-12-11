@@ -10,7 +10,13 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  
+    // Process request and return appropriate
+  var nonce = request.url.substring(1);
+  var processed = crypto.createHmac('SHA256', apiSecret).update(nonce).digest('base64');
+  response.end(processed);
+
+
 });
 
 app.listen(app.get('port'), function() {
