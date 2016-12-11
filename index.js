@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var apiSecret = 'm0MrXYcx4EA47oaqPfs8JzWcegxas6V1';
 
 app.set('port', (process.env.PORT || 5000));
 
